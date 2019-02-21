@@ -293,6 +293,72 @@ class: center, middle
     </my-header>
     ```
 ---
+
+#  `<template>` Specification
+  <img class="dvt-logo" src="assets/img/dvt-logo.png" alt="DVT Logo">
+  - Defines fragments of markup that go unused at page load until they are instantiated later on at runtime.
+
+  ```html5
+  <!-- Define the template -->
+  <template id="paragraph-template">
+      <p>
+        <slot name="text">Just some default text that get's used if nothing is passed into the slot.</slot>
+      </p>
+  </template>
+  <!-- Use the template in a component -->
+  <awesome-paragraph>
+      <span slot="text">The most awesome paragraph component.</span>
+  </awesome-paragraph>
+  ```
+
+  ```JavaScript
+  customElements.define('awesome-paragraph', class extends HTMLElement {
+      constructor() {
+        super();
+
+        let template = document.getElementById('my-paragraph').content;
+        const shadowRoot = this.attachShadow({ mode: 'open' })
+          .appendChild(template.cloneNode(true));
+      }
+  });
+  ```
+---
+
+# Web Components in the Wild
+  <img class="dvt-logo" src="assets/img/dvt-logo.png" alt="DVT Logo">
+  - Google
+  - EA
+  - Bloomberg
+  - Salesforce
+  - Coca-Cola
+  - McDonald's
+  - A lot more of other companies.
+
+  <img style="width: 100%" src="assets/img/chrome-settings.PNG">
+---
+
+# Tools
+  <img class="dvt-logo" src="assets/img/dvt-logo.png" alt="DVT Logo">
+  - Dev Libraries:
+    - [Polymer](https://www.polymer-project.org/)
+    - [stencil](https://stenciljs.com/)
+    - [x-tag](https://x-tag.github.io/)
+    - [Hybrids](https://github.com/hybridsjs/hybrids)
+    - [Skate.js](https://skatejs.gitbooks.io/skatejs/content/)
+    - [LitElement](https://github.com/Polymer/lit-element)
+    - [Slim.js](http://slimjs.com/)
+
+  - Resources:
+    - https://www.webcomponents.org/
+    - https://www.w3.org/standards/techs/components#w3c_all
+    - https://w3c.github.io/webcomponents/
+---
+
+# Lastly
+  <img class="dvt-logo" src="assets/img/dvt-logo.png" alt="DVT Logo">
+  <div style="position: absolute; top: 45%; left: 35%">
+    <h1>Demo Time!!!</h1>
+  </div>
   </textarea>
   <script src="https://remarkjs.com/downloads/remark-latest.min.js">
   </script>
