@@ -238,12 +238,10 @@ class: center, middle
   - If an element has shadow DOM, the shadow tree is rendered instead of the element's children.
   - For children to render, [slots](https://developers.google.com/web/fundamentals/web-components/shadowdom#slots) can be added to the shadow tree.
   ```html5
-<my-header>
-      <header>
-          <h1><slot></slot></h1>
-          <button>Menu</button>
-      </header>
-</my-header>
+  <header>
+      <h1><slot></slot></h1>
+      <button>Menu</button>
+  </header>
   ```
   - Add some children by using the component in our HTML:
   ```html5
