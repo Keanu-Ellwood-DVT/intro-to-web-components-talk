@@ -213,11 +213,22 @@ class: center, middle
   <img class="dvt-logo" src="assets/img/dvt-logo.png" alt="DVT Logo">
   - In Shadow DOM, use the attachShadow() method to create shadow DOM:
   ```JavaScript
-  const header = document.createElement('header');
-  const shadowRoot = header.attachShadow({ mode: 'open' });
-  shadowRoot.appendChild = '<h1>Hello Shadow DOM</h1>';
+  customElements.define('my-header', class extends HTMLElement {
+      constructor() {
+        super();
+
+        const shadowRoot = this.attachShadow({mode: 'open'});
+        shadowRoot.innerHtml = `
+          <style>button { ... }</style> <!-- styles are scoped to my-header -->
+          <header>
+              <h1><slot></slot></h1>
+              <button>Menu</button>
+          </header>
+        `;
+      }
+  });
   ```
-  <div style="text-align: center; margin-top: 2em;">
+  <div style="text-align: center; margin-top: 1em;">
       <img src="assets/img/tenor.gif">
   </div>
 ---
@@ -226,25 +237,24 @@ class: center, middle
   <img class="dvt-logo" src="assets/img/dvt-logo.png" alt="DVT Logo">
   - If an element has shadow DOM, the shadow tree is rendered instead of the element's children.
   - For children to render, [slots](https://developers.google.com/web/fundamentals/web-components/shadowdom#slots) can be added to the shadow tree.
-  - How?
-
   ```html5
-  <header>
-      <h1><slot name="header-text"></slot></h1>
-      <button>Menu</button>
-  </header>
+<my-header>
+      <header>
+          <h1><slot></slot></h1>
+          <button>Menu</button>
+      </header>
+</my-header>
   ```
-
   - Add some children by using the component in our HTML:
   ```html5
   <my-header>A really awesome heading!!!</my-header>
   ```
-
   - The result if we `[View Page Source]`?
   ```html5
   <my-header>
+    #shadow-root
       <header>
-        <h1 slot="header-text">Shadow DOM</h1>
+        <h1><slot>A really awesome heading!!!</slot></h1>
         <button>Menu</button>
       </header>
   </my-header>
@@ -263,11 +273,27 @@ class: center, middle
 
 # Shadow DOM :: Styling...
   <img class="dvt-logo" src="assets/img/dvt-logo.png" alt="DVT Logo">
-  - Component-defined styles
-    - This is the `scoped CSS` feature:
-      - CSS selectors from the outer document don't apply inside your component.
-      - Styles defined inside don't bleed out. They're scoped to the host element.
-    - CSS selectors used inside shadow DOM apply locally to your component.
+  - Component-defined styles - <i>creates scoped css</i>
+    - CSS selectors from the outer document don't apply inside your component.
+    - Styles defined inside don't bleed out. They're scoped to the host element.
+    ```html5
+    <style>:host { padding: 4em; }</style>
+    <header>
+        <h1 slot="header-text">Shadow DOM</h1>
+        <button>Menu</button>
+    </header>
+    ```
+    - The result:
+    ```html5
+    <my-header>
+      #shadow-root
+      <style>:host { padding: 4em; }</style>
+        <header>
+          <h1 slot="header-text">Shadow DOM</h1>
+          <button>Menu</button>
+        </header>
+    </my-header>
+    ```
 ---
   </textarea>
   <script src="https://remarkjs.com/downloads/remark-latest.min.js">
