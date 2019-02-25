@@ -292,7 +292,7 @@ class: center, middle
       constructor() {
         super();
 
-        let template = document.getElementById('my-paragraph').content;
+        let template = document.getElementById('paragraph-template').content;
         const shadowRoot = this.attachShadow({ mode: 'open' })
           .appendChild(template.cloneNode(true));
       }
