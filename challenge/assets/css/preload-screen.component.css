@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+:root {
+  --primary-bg: #5856d6;
+  --preload-circle-bg: #fff;
+  --preload-circle-outer-bg-1: #aaa9ea;
+  --preload-circle-outer-bg-2: #9493e5;
+  --preload-circle-outer-bg-3: #7978de;
+  --preload-circle-text-color-1: #5856d6;
+  --preload-circle-text-color-2: #5ac8fa;
+}
+
+body {
+  align-items: center;
+  animation: 750ms fadeIn ease-in;
+  background-color: var(--primary-bg);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.preload-circle {
+  align-items: center;
+  animation: 1.8s infinite pulse;
+  background-color: var(--preload-circle-bg);
+  border-radius: 50%;
+  display: flex;
+  font-size: 2em;
+  height: 6em;
+  justify-content: center;
+  width: 6em;
+}
+
+.preload-circle__text1 {
+
+  color: var(--preload-circle-text-color-1);
+  margin-right: -0.1em;
+}
+
+.preload-circle__text2 {
+  color: var(--preload-circle-text-color-2);
+}
+
+.preload-circle-outer-1 {
+  align-items: center;
+  animation: 1.9s infinite pulse;
+  background-color: var(--preload-circle-outer-bg-1);
+  border-radius: 50%;
+  display: flex;
+  height: 15em;
+  justify-content: center;
+  width: 15em;
+}
+
+.preload-circle-outer-2 {
+  align-items: center;
+  animation: 2s infinite pulse;
+  background-color: var(--preload-circle-outer-bg-2);
+  border-radius: 50%;
+  display: flex;
+  height: 19em;
+  justify-content: center;
+  width: 19em;
+}
+
+.preload-circle-outer-3 {
+  align-items: center;
+  animation: 2.1s infinite pulse;
+  background-color: var(--preload-circle-outer-bg-3);
+  border-radius: 50%;
+  display: flex;
+  font-family: 'Pacifico', cursive;
+  font-weight: 100;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (min-width: 20em) {
+  .preload-circle-outer-3 {
+    height: 22em;
+    width: 22em;
+  }
+}
+
+@media only screen and (min-width: 30em) {
+  .preload-circle-outer-3 {
+    height: 28em;
+    width: 28em;
+  }
+}

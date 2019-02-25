@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <title>Progress Bar Component Demo</title>
+
+  <script src="dvt-progress.js"></script>
+
+  <style>
+  body {
+    font-family: 'Paifico', cursive;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+
+  <h1>DVT Progress Bar Custom Element</h1>
+
+  <br>
+
+  <dvt-progress-bar></dvt-progress-bar>
+
+  <script>
+  (function() {
+      let progressBar = document.querySelector('dvt-progress-bar');
+      let progress = 0;
+      var progressInterval = setInterval(() => {
+        progress++;
+
+        if (progress <= 100) {
+          progressBar.setAttribute('progress', progress);
+        } else {
+          clearInterval(progressInterval);
+        }
+      }, 80);
+    })();
+  </script>
+</body>
+</html>
