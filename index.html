@@ -156,13 +156,18 @@ class: center, middle
 
 # Shadow DOM
   <img class="dvt-logo" src="assets/img/dvt-logo.png" alt="DVT Logo">
-  - The shadow DOM API allows you attach DOM subtrees to elements in a web document.
-  - These subtrees are encapsulated; style information inside them cannot apply to outside elements, and vice versa.
-    - The DOM (Document Object Model) is a representation of the structure of an html document.
+  ##### DOM
+  - The DOM (Document Object Model) is a representation of the structure of an html document.
     - The DOM models a document as a tree, with elements in parent-child relationships.
     - On its own, the DOM API contains no support for encapsulation.
       - This makes it hard to develop custom elements as style information may “leak” into or out of other elements in the tree;
       - or IDs may overlap between custom elements and other elements in the document.
+
+<hr>
+  ##### Shadow Dom
+  - The shadow DOM API allows you attach DOM subtrees to elements in a web document.
+  - These subtrees are encapsulated; style information inside them cannot apply to outside elements, and vice versa.
+
 ---
 
 # Shadow DOM :: Benefits?
