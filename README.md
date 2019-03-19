@@ -3,3 +3,4 @@
 ___
 - [Presentation](https://github.com/awesome-fortune/intro-to-angular-workshop/tree/master/StarterTemplate)
 - [App used to demo concepts](https://github.com/awesome-fortune/intro-to-web-components-talk/tree/master/demo)
+- [Starter template for web components chanllenge](https://github.com/awesome-fortune/intro-to-web-components-talk/tree/master/demo)
